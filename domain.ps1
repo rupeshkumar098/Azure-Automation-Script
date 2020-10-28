@@ -2,7 +2,8 @@
      [Parameter(Mandatory=$true)]$dName, [Parameter(Mandatory=$true)]$smaPass
      )
 #LogFile Provisioning
-$LogFile= "C:\ADDSLogs\"
+$timestamp = Get-Date -F MM-dd-yyyy-hh-mm-ss
+$LogFile= "C:\ADDSLogs\"+ $timestamp + ".log"
 Start-Transcript -path $LogFile -append
 
 # Set Winrm trust for remote powershell 
