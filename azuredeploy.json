@@ -292,7 +292,7 @@
             "autoUpgradeMinorVersion":true,
             "settings": {
                 "fileUris": [
-                    "https://raw.githubusercontent.com/rupeshkumar098/Azure-Automation-Script/main/domain.ps1"
+                    "https://storageac4script.blob.core.windows.net/con1/domain.ps1"
                 ],
                
                "commandToExecute": "[concat('powershell.exe -ExecutionPolicy Unrestricted -File domain.ps1  -dName ' ,parameters('DomainName'),' -smaPass ' ,parameters('ADDSPassword'),'')]"
