@@ -3,7 +3,7 @@
      )
 #LogFile Provisioning
 $timestamp = Get-Date -F MM-dd-yyyy-hh-mm-ss
-$LogFile= "C:\ADDSLogs\"+ $timestamp + ".log"
+$LogFile = "C:\ADDSLogs\"+ $timestamp + ".log"
 Start-Transcript -path $LogFile -append
 
 # Set Winrm trust for remote powershell 
@@ -41,7 +41,7 @@ netsh advfirewall set allprofiles state On
 
 Write-Host "ALL DONE, Now Rebooting the Server."
 #Restart the computer to complete the process
-Restart-computer
+Restart-Computer
 
 Stop-Transcript
 
