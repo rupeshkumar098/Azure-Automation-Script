@@ -2,8 +2,6 @@
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    
-
     "adminUsername": {
       "type": "string",
       "metadata": {
@@ -17,9 +15,8 @@
         "description": "Password for the Virtual Machine."
       }
     },
-    "dnsLabelPrefix": {
+    "Public_IP dnsLabelPrefix": {
       "type": "string",
-      "defaultValue": "[toLower(concat(parameters('vmName'),'-', uniqueString(resourceGroup().id, parameters('vmName'))))]",
       "metadata": {
         "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
       }
@@ -86,7 +83,6 @@
     },
     "location": {
       "type": "string",
-      "defaultValue": "[resourceGroup().location]",
       "metadata": {
         "description": "Location for all resources."
       }
@@ -104,7 +100,7 @@
         "description": "Domain Name for for you new Forest"
       }
     },
-    "ADDSPassword":{
+    "SMAPassword":{
       "type": "string",
       "metadata": {
         "description": "SafeModeAdministratorPassword for ADDS Domain Controller"
@@ -294,7 +290,7 @@
             "autoUpgradeMinorVersion":true,
             "settings": {
                 "fileUris": [
-                    "https://raw.githubusercontent.com/rupeshkumar098/Azure-Automation-Script/main/azuredeploy.json"
+                    "https://raw.githubusercontent.com/rupeshkumar098/Azure-Automation-Script/main/domain.ps1"
                 ],
                
                "commandToExecute": "[concat('powershell.exe -ExecutionPolicy Unrestricted -File domain.ps1  -dName ' ,parameters('DomainName'),' -smaPass ' ,parameters('ADDSPassword'),'')]"
