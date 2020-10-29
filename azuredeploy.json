@@ -293,7 +293,7 @@
                     "https://raw.githubusercontent.com/rupeshkumar098/Azure-Automation-Script/main/domain.ps1"
                 ],
                
-               "commandToExecute": "[concat('powershell.exe -ExecutionPolicy Unrestricted -File domain.ps1  -dName ' ,parameters('DomainName'),' -smaPass ' ,parameters('ADDSPassword'),'')]"
+               "commandToExecute": "[concat('powershell.exe -ExecutionPolicy Unrestricted -File domain.ps1  -dName ' ,parameters('DomainName'),' -smaPass ' ,parameters('DSRMPassword'),'')]"
                
             }
         }
