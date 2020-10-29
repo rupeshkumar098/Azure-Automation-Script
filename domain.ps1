@@ -3,11 +3,8 @@
      )
 #LogFile Provisioning
 $timestamp = Get-Date -F MM-dd-yyyy-hh-mm-ss
-$LogFile = "C:\ADDSLogs\"+ $timestamp + ".log"
+$LogFile = "C:\ADDSLogs\"+"log "+ $timestamp + ".log"
 Start-Transcript -path $LogFile -append
-
-# Set Winrm trust for remote powershell 
-Set-Item wsman:\localhost\client\trustedhosts * -Force 
 
 # Turn Off Windows Firewall 
 netsh advfirewall set allprofiles state off 
@@ -21,14 +18,14 @@ try
 	Install-WindowsFeature -name AD-Domain-Services -IncludeManagementTools
 	Write-Host "ADDS Features Installed."
 
-	#Promite this PC to Domain Controller
+	#Promote this PC to Domain Controller
 	Import-Module ADDSDeployment
 	Install-ADDSForest `
 	-DomainName $dName `
 	-SafeModeAdministratorPassword $Secure2 `
 	-NoRebootOnCompletion `
 	-LogPath "C:\Logs.txt" -Force
-	Write-Host "Server Prompted to Domain Controller Successfully."
+	Write-Host "Server Promoted to Domain Controller Successfully."
 	
 }
 catch
@@ -41,7 +38,7 @@ netsh advfirewall set allprofiles state On
 
 Write-Host "ALL DONE, Now Rebooting the Server."
 #Restart the computer to complete the process
-Restart-Computer
+
 
 Stop-Transcript
 
