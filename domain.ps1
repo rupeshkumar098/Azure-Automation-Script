@@ -23,8 +23,7 @@ try
 	Install-ADDSForest `
 	-DomainName $dName `
 	-SafeModeAdministratorPassword $Secure2 `
-	-NoRebootOnCompletion `
-	-LogPath "C:\Logs.txt" -Force
+	-LogPath "C:\Logs" -Force
 	Write-Host "Server Promoted to Domain Controller Successfully."
 	
 }
