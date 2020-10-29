@@ -100,10 +100,10 @@
         "description": "Domain Name for for you new Forest"
       }
     },
-    "SMAPassword":{
+    "DSRMPassword":{
       "type": "string",
       "metadata": {
-        "description": "SafeModeAdministratorPassword for ADDS Domain Controller"
+        "description": "Directory Services Restore Mode(DSRM) Password for Domain Controller"
       }
     }
 
